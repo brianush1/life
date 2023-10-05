@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Game of Life</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+		<script src="bundle.js" defer></script>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<div class="frame" id="pattern-info">
+			<h1 id="pattern-name"></h1>
+			<div id="author"></div>
+			<div id="description"></div>
+			<button id="pattern-close"><img src="icons/close.svg"></button>
+		</div>
+		<div class="frame" id="help">
+			<ul>
+				<li><b>Left click</b> or <b>Shift+Scroll</b> to look around</li>
+				<li><b>Right click</b> to create or destroy cells</li>
+				<li><b>Scroll</b> to zoom</li>
+				<li><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Learn more about the Game of Life on Wikipedia</a></li>
+			</ul>
+			<button id="help-close"><img src="icons/close.svg"></button>
+			<div style="width:100%;">
+				<div style="float:left;" id="dismiss-forever-container" class="checkbox-container">
+					<input id="dismiss-forever" type="checkbox">
+					<label for="dismiss-forever">Don't show this on startup again</label>
+				</div>
+				<button style="float:right;" class="basic-button" id="help-dismiss">Got it</button>
+			</div>
+		</div>
+		<div class="frame" id="info">
+			<p>
+			This is a WebGL-accelerated <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Game of Life</a> simulator.<br>
+			It's not the fastest out there, since it takes the naive approach to simulating Life and just chunks the work and gives it to the GPU to deal with (see <a href="https://en.wikipedia.org/wiki/Hashlife">Hashlife</a> for a better approach), but it was fun to make.
+			</p>
+			<p>
+				All patterns were downloaded from
+				<a href="https://conwaylife.com/patterns/all.zip">conwaylife.com</a>,
+				and patterns that cover an area of over 1 million cells were removed.
+			</p>
+			<p>
+				<a href="https://github.com/brianush1/life">Source code on GitHub</a>
+				<br>
+				<a href="/">Check out my homepage</a>
+			</p>
+			<button id="info-close"><img src="icons/close.svg"></button>
+			<div style="width:100%;">
+				<button style="float:right;" class="basic-button" id="info-dismiss">Dismiss</button>
+			</div>
+		</div>
+		<div class="frame" id="controls">
+			<button id="speed-decrease" title="Increase simulation speed"><img src="icons/speed-decrease.svg"></button>
+			<div id="speed">1x</div>
+			<button id="speed-increase" title="Decrease simulation speed"><img src="icons/speed-increase.svg"></button>
+			<!-- <button id="undo" title="Undo" disabled><img src="icons/undo.svg"></button>
+			<button id="redo" title="Redo" disabled><img src="icons/redo.svg"></button> -->
+			<button id="play-pause" title="Start simulation"><img src="icons/play.svg"></button>
+			<button id="step" title="Step simulation"><img src="icons/step.svg"></button>
+			<div id="generation">Gen: 0</div>
+			<button id="clear" title="Clear"><img src="icons/close.svg"></button>
+			<button id="refresh" title="New Pattern"><img src="icons/refresh.svg"></button>
+			<button id="show-help" title="Help"><img src="icons/help.svg"></button>
+			<button id="show-info" title="About"><img src="icons/about.svg"></button>
+		</div>
+	</body>
+</html>
